@@ -1,0 +1,39 @@
+<h1>Listing students</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Sex</th>
+    <th>Num</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+     <td><%= link_to student.name,student %><title></title></td>
+    <td><%= student.sex %></td>
+    <td><%= student.num %></td>
+    <td><%= student.email %></td>
+    <td><%= link_to 'Show', student %></td>
+    <td><%= link_to 'Edit', edit_student_path(student) %></td>
+    <td><%= link_to 'Destroy', student, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+    <% student.parents.each do |parent| %>
+		<td></td>
+		<td> <%= link_to parent.name  %> </td>
+		<td><%= parent.tel %> </td>
+		<td><%= parent.email %> </td>
+  <tr>
+   <%  end if !student.parents.nil? %>
+<% end %>
+</table>
+def xiangxi(student.parent)
+alter("")
+end
+
+<br />
+
+<%= link_to 'New Student', new_student_path %>
